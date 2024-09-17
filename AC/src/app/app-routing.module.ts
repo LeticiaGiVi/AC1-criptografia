@@ -11,6 +11,11 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'tela-dados/:secretKey/:NomeEncriptado/:EmailEncriptado/:MensagemEncriptado',
+    loadChildren: () => import('./tela-dados/tela-dados.module').then( m => m.TelaDadosPageModule)
+  },
+
 ];
 
 @NgModule({

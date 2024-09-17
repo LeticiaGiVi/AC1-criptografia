@@ -9,18 +9,26 @@
 <ion-content [fullscreen]="true">
   <ion-list>
     <ion-item>
-      <ion-input label="Nome" placeholder="Insira o nome" [(ngModel)]="Nome"></ion-input>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input placeholder="Insira o nome" [(ngModel)]="Nome"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input label="email" placeholder="Insira o email" [(ngModel)]="Email"></ion-input>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input placeholder="Insira o email" [(ngModel)]="Email"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input label="chave" placeholder="defina a chave" [(ngModel)]="Chave"></ion-input>
+      <ion-label position="floating">Mensagem</ion-label>
+      <ion-textarea placeholder="Mensagem" [autoGrow]="true" [(ngModel)]="Mensagem"></ion-textarea>
     </ion-item>
   </ion-list>
 
-  <ion-button expand="block">Armaznar dados</ion-button>
+  <ion-button expand="block" (click)="Armazenar()">Armazenar dados</ion-button>
+  <ion-button expand="block" (click)="Mostrar()">Mostrar</ion-button>
 
-  <ion-button expand="block">verificar dados</ion-button>
+
+
+    <ion-textarea [(ngModel)]="NomeEncriptado" readonly></ion-textarea>
+    <ion-textarea [(ngModel)]="EmailEncriptado" readonly></ion-textarea>
+    <ion-textarea [(ngModel)]="MensagemEncriptado" readonly></ion-textarea>
 
 </ion-content>

@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Tela-Dados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label>Nome encriptado</ion-label>
+    <ion-textarea [(ngModel)]="NomeEncriptado" readonly></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label>Email encriptado</ion-label>
+    <ion-textarea [(ngModel)]="EmailEncriptado" readonly></ion-textarea>
+  </ion-item>
+  <ion-item>
+  <ion-label>Mensagem encriptado</ion-label>
+  <ion-textarea [(ngModel)]="MensagemEncriptado" readonly></ion-textarea>
+  </ion-item>
+
+  <br><br>
+
+  <ion-item>
+    <ion-input label="Chave" placeholder="Insira a Chave" [(ngModel)]="Chave"></ion-input>
+  </ion-item>
+  <ion-button expand="block"(click)="Verificar()">Verificar Dados</ion-button>
+
+  <br><br>
+
+
+  <ion-label [(ngModel)]="Nome" readonly></ion-label>
+  <ion-label [(ngModel)]="Email" readonly></ion-label>
+  <ion-label [(ngModel)]="Mensagem" readonly></ion-label>
+
+  <ion-textarea [(ngModel)]="secretKey" readonly></ion-textarea>
+  
+</ion-content>
