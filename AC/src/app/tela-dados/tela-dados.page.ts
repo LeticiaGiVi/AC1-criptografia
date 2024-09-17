@@ -21,7 +21,7 @@ export class TelaDadosPage implements OnInit {
   constructor(private activatedRoute : ActivatedRoute) { }
 
   ngOnInit() {
-  
+
     this.secretKey = this.activatedRoute.snapshot.paramMap.get('secretKey')
     this.NomeEncriptado = this.activatedRoute.snapshot.paramMap.get('NomeEncriptado')
     this.EmailEncriptado = this.activatedRoute.snapshot.paramMap.get('EmailEncriptado')
@@ -30,15 +30,15 @@ export class TelaDadosPage implements OnInit {
 
   Verificar(){
     if (this.NomeEncriptado && this.secretKey && this.EmailEncriptado && this.MensagemEncriptado && this.Chave==this.secretKey) {
-      const bytesNome = CryptoJS.AES.decrypt(this.NomeEncriptado, this.secretKey);
+      const bytesNome = CryptoJS.AES.decrypt(this.NomeEncriptado, this.Chave);
       const decryptedNome = bytesNome.toString(CryptoJS.enc.Utf8);
       this.Nome = decryptedNome;
 
-      const bytesEmail = CryptoJS.AES.decrypt(this.EmailEncriptado, this.secretKey);
+      const bytesEmail = CryptoJS.AES.decrypt(this.EmailEncriptado, this.Chave);
       const decryptedEmail = bytesEmail.toString(CryptoJS.enc.Utf8);
       this.Email= decryptedEmail;
 
-      const bytesMensagem = CryptoJS.AES.decrypt(this.MensagemEncriptado, this.secretKey);
+      const bytesMensagem = CryptoJS.AES.decrypt(this.MensagemEncriptado, this.Chave);
       const decryptedMensagem = bytesMensagem.toString(CryptoJS.enc.Utf8);
       this.Mensagem = decryptedMensagem;
     }
